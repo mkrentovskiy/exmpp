@@ -144,8 +144,7 @@ start_link() ->
 	%% detect and make use of it, so ensure that crypto is
 	%% started before loading the driver.
 	crypto:start(),
-	register_builtin_engine(openssl, exmpp_tls_openssl,
-				[{x509, 10}])).
+	register_builtin_engine(openssl, exmpp_tls_openssl, [{x509, 10}])).
 -else.
 -define(REGISTER_OPENSSL, ok).
 -endif.

@@ -423,11 +423,8 @@ start_link() ->
 -ifdef(HAVE_EXPAT).
 -define(REGISTER_EXPAT,
 	register_builtin_engine(expat, exmpp_xml_expat)).
--define(REGISTER_EXPAT_LEGACY,
-	register_builtin_engine(expat_legacy, exmpp_xml_expat_legacy)).
 -else.
 -define(REGISTER_EXPAT, ok).
--define(REGISTER_EXPAT_LEGACY, ok).
 -endif.
 
 -ifdef(HAVE_LIBXML2).
@@ -439,7 +436,6 @@ start_link() ->
 
 register_builtin_engines() ->
     ?REGISTER_EXPAT,
-    ?REGISTER_EXPAT_LEGACY,
     ?REGISTER_LIBXML2,
     ok.
 

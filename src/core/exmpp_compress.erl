@@ -117,7 +117,7 @@ start_link() ->
 
 -ifdef(HAVE_ZLIB).
 -define(REGISTER_ZLIB,
-	register_builtin_engine(zlib, exmpp_compress_zlib,
+	register_builtin_engine(zlib, exmpp_zlib,
 				[{zlib, 10}, {gzip, 10}])).
 -else.
 -define(REGISTER_ZLIB, ok).
