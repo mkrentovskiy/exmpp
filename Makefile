@@ -10,7 +10,7 @@ all: deps compile
 	chmod +x ./rebar
 
 compile: $(REBAR)
-	@$(REBAR) compile
+	@$(REBAR) -v compile
 
 clean: $(REBAR)
 	@$(REBAR) clean

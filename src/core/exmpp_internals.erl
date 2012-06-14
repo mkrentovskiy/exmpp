@@ -71,7 +71,6 @@ driver_dirs() ->
 		    Base_Dir = filename:dirname(filename:dirname(Mod_Path)),
 		    [
 		     filename:join([Base_Dir, "priv", "lib"]),
-		     filename:join([Base_Dir, "c_src", ".libs"]),
 		     filename:join([Base_Dir, "c_src"])
 		    ]
 	    end,
@@ -107,12 +106,12 @@ load_driver(Driver_Name, Dirs) ->
 %% This function will try to load `Driver_Name' from each `Dir' in the list.
 load_driver1(Driver_Name, [Dir | Rest], _Reason) ->
     case erl_ddll:load_driver(Dir, Driver_Name) of
-        ok ->
-            ok;
-        {error, Reason} ->
+	ok -> 
+	    ok;
+	{error, Reason} ->
 	    %% Next directory.
-            load_driver1(Driver_Name, Rest, Reason)
-    end;
+	    load_driver1(Driver_Name, Rest, Reason)
+	end;
 load_driver1(Driver_Name, [], Reason) ->
     %% We walk through each directories without being able to load the driver.
     throw({port_driver, load, Reason, Driver_Name}).

@@ -19,7 +19,7 @@
 
 #include "exmpp_compress.h"
 
-#define	DRIVER_NAME	exmpp_compress_zlib
+#define	DRIVER_NAME	exmpp_zlib
 
 #define	BUF_SIZE	1024
 
